@@ -1,0 +1,18 @@
+external_ip: 192.168.122.146
+network: 10.222.0.0
+mtu: 1420
+listen_port: 51871
+region: eu-cloud-1
+dns_nameservers:
+- 8.8.8.8
+ntp_servers:
+- 0.europe.pool.ntp.org
+- 1.europe.pool.ntp.org
+cluster_token: some_secret_token
+ssh_authorized_keys:
+- github:kwiesmueller
+# Allows to specify public and private key to prevent new keys from being generated on every run.
+# Can be set based on the generated files.
+# wireguard:
+#   public_key: ...
+#   private_key: ...

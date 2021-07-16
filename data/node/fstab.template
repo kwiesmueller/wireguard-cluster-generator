@@ -1,0 +1,4 @@
+# fstab entries for disks defined in node config
+{{range $index, $disk := .Disks }}
+UUID={{ $disk.UUID }} {{ $disk.Path }} ext4 defaults 0 2
+{{end}}

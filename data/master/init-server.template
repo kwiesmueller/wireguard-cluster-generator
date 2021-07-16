@@ -1,0 +1,7 @@
+# setup wireguard on wg0
+wg-quick up wg0
+ip -4 route add {{ .RouteNetwork }} dev wg0
+
+{{range $index, $node := .Nodes }}
+wg set wg0 peer {{ $node.WireGuard.PublicKey }} allowed-ips {{ $node.IP }}
+{{end}}

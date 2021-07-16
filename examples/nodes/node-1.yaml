@@ -1,0 +1,14 @@
+id: 1
+region: eu-local-1
+
+# Allows to specify disks to be written into /etc/fstab.
+# Only support UUID bind mode and ext4 file systems right now.
+# disks:
+# - path: /mnt/storage
+#   uuid: b769f506-a2a7-4e76-9cd9-57ad4541ebf7
+
+# Allows to specify public and private key to prevent new keys from being generated on every run.
+# Can be set based on the generated files.
+# wireguard:
+#   public_key: ...
+#   private_key: ...

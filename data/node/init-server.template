@@ -1,0 +1,2 @@
+# setup wireguard on wg0
+wg-quick up wg0
