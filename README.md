@@ -6,6 +6,29 @@ for setting up a wireguard connected Kubernetes cluster.
 **NOTE:** This repository is based on my own experimentation and more a sandbox project than anything else.
 Feel free to open issues or get in touch if you are trying similar things. I'm happy to hear feedback and ideas.
 
+## Quickstart
+
+Place your configs in a custom repository (e.g. `cluster-configs`). You can copy the [examples](./examples) folder for a reference directory structure.
+
+```sh
+export BASE_DIR=<path-to-cluster-configs>
+export CLUSTER_NAME=<your-cluster-name>
+make configs
+```
+
+To also generate Raspberry Pi images, checkout the [picl-k3os-image-generator fork](https://github.com/kwiesmueller/picl-k3os-image-generator)
+and set it's path as `IMAGE_GENERATOR`
+
+```sh
+export IMAGE_GENERATOR=${HOME}/git/kwiesmueller/picl-k3os-image-generator
+# select which of your nodes will need Raspberry Pi images
+export RASPBERRY_NODES=node-1,node-2
+
+make images
+```
+
+Find your images and configs in `<cluster-configs>/out/<your-cluster-name>`.
+
 ## Configuration
 
 The helper tool in [/cmd/generate.go](./cmd/generate.go) takes a master configuration and a folder

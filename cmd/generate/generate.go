@@ -19,6 +19,12 @@ var (
 func main() {
 	flag.Parse()
 
+	if _, err := os.Stat(*outDir); err != nil && os.IsNotExist(err) {
+		if err := os.MkdirAll(*outDir, 0770); err != nil {
+			logErrAndExit(err)
+		}
+	}
+
 	fmt.Println("processing master at", *masterConfigPath)
 	masterConfig, err := DecodeMasterConfig(*masterConfigPath)
 	if err != nil {
